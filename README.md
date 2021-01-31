@@ -55,6 +55,17 @@ Cuando revisamos el comportamiento de frecuencias, podemos notar la siguiente te
 
 Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren más de 1.000 veces, cuántas ocurren entre 999 y 500, entre 499 y 200, entre 199 y 100, entre 99 y 50, entre 49 y 10, y menos de 10, obtenemos el siguiente resultado.
 
+| Palabras que ocurren... | Frecuencia |
+| --- | --- | 
+|más de 5000 | 4| 
+|entre 5000 y 1000| 21|
+|entre 1000 y 500 | 15|
+|entre 500 y 200| 72|
+|entre 200 y 100| 103|
+|entre 100 y 50| 221|
+|entre 50 y 10| 1721|
+|menos de 10| 9974|
+
 En esta novela, vemos que 
 ## Resultados
 
