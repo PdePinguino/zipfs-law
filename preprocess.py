@@ -8,8 +8,8 @@
 # lowercasing
 
 # Biblioteca Virtual Miguel de Cervantes
-import itertools
-from collections import Counter
+
+from nltk.corpus import stopwords
 
 def read_text(file):
     with open(file, 'r') as file:
@@ -24,30 +24,38 @@ def clean_token(token):
 
     return cleaned_token
 
-def vocab2freq(words):
-    vocab = {}
-    for word in words:
+def remove_stop_words(tokens):
+    stop_words = stopwords.words('spanish')
+    tokens_wsw = [token for token in tokens if token not in stop_words]
+
+    return tokens_wsw
+
+def preprocess_file(file, verbose=False, remove_sw=False):
+    text = read_text(file)
+    lines = text.split('\n')
+    raw_tokens = [token for token in text.split()]
+    cleaned_tokens = [clean_token(token) for token in raw_tokens]
+
+    if remove_sw:
+        tokens_wsw = remove_stop_words(cleaned_tokens)
+        tokens = tokens_wsw
+
+    else:
+        tokens = cleaned_tokens
+
+    if verbose:
+        print(f'file read: {file}')
+        print(f'amount of lines: {len(lines)}')
+        print('amount of raw tokens', len(raw_tokens))
+        print('amount of cleaned tokens', len(cleaned_tokens))
         try:
-            vocab[word] += 1
-        except KeyError:
-            vocab[word] = 1
-    print('len vocab keys', len(vocab))
-    vocab = dict(sorted(vocab.items(), key=lambda item: item[1], reverse=True))
-    return vocab
+            print('amount of tokens without stop words', len(tokens_wsw))
+        except:
+            pass
+
+    return tokens
 
 
-text = read_text('hijo_de_ladron.txt')
-lines = text.split('\n')
-tokens = [token for token in text.split()]
-print('len raw tokens', len(tokens))
-cleaned_tokens = [clean_token(token) for token in tokens]
-print('len cleaned tokens', len(cleaned_tokens))
-
-vocab = vocab2freq(cleaned_tokens)
-print('len vocab2freq', len(vocab))
-
-freq2inst = Counter(vocab.values())
-for k,v in freq2inst.items():
-    print(k,v)
-print('len freq2inst', len(freq2inst))
-print(sum([element[1] for element in freq2inst.items()]))
+if __name__ == '__main__':
+    file = 'hijo_de_ladron.txt'
+    tokens = preprocess_file(file, verbose=True, remove_sw=True)
