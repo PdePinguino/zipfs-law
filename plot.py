@@ -41,3 +41,13 @@ def plot_first(freq, first=30):
     plt.title(f'Frequency of first {first} words', fontdict=font)
     #plt.grid()
     plt.show()
+
+def plot_frequency_of_frequency(freqs):
+    labels = list(freqs.keys())
+    freqs = list(freqs.values())
+    #print(labels)
+    #print(freqs)
+    plt.bar(labels, freqs)
+    plt.title(f'Frequency of frequency of words', fontdict=font)
+    plt.xticks(labels, labels, rotation=15, fontsize=8)
+    plt.show()
