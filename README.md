@@ -66,6 +66,8 @@ Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren 
 |entre 50 y 10| 1721|
 |menos de 10| 9974|
 
-En esta novela, vemos que 
+![freq_of_freq](https://user-images.githubusercontent.com/76110750/106397292-65201d80-63eb-11eb-800b-b86f8ab3968f.png)
+
+
 ## Resultados
 
