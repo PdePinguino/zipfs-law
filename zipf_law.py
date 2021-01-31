@@ -19,7 +19,7 @@ def vocab2freq(words):
 
 
 if __name__ == '__main__':
-    file = sys.argv[1]
+    file = sys.argv[1]  # archivo que será analizado
     tokens = preprocess.preprocess_file(file, remove_sw=True)
     vocab = vocab2freq(tokens)  # the same as collections.Counter(tokens)
 
