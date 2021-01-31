@@ -20,15 +20,41 @@ Este código se encarga de:
 - (opcional) lematizar (reducir palabras a su forma base). TODO
 - (opcional) radicalizar (stemming) (reducir palabras a su raíz). TODO
 
-## Análisis de frecuencias
-Una vez obtenida la lista de palabras a considerar, se genera un diccionario que cuenta las instancias de cada palabra.
-Para esto, se cuenta cuántas veces la misma palabra está contenida en la lista.
-En este análisis, las decisiones del pre-procesamiento son importantes ya que nuestros resultados serán distintos según qué estamos contando.
-Por ejemplo, cuando no removemos stop-words, la frecuencia es la siguiente:
+## Frecuencias
+Una vez obtenida la lista de palabras a considerar, se genera un diccionario que cuenta las instancias de cada palabra.\
+Para esto, se cuenta cuántas veces la misma palabra está contenida en la lista.\
+En este análisis, las decisiones del pre-procesamiento son importantes ya que nuestros resultados serán distintos según qué estamos contando.\
+Por ejemplo, cuando analizamos todas las palabras del texto, es decir, no removemos stop-words, la frecuencia es la siguiente:
+
+![freq_allwords_30](https://user-images.githubusercontent.com/76110750/106389944-ced90100-63c4-11eb-9ab6-bc9a24a2ef93.png)
 
 Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando.
 
+<!-- ![freq_wsw](https://user-images.githubusercontent.com/76110750/106389950-d13b5b00-63c4-11eb-8325-67fd3ccfc0b4.png) -->
+![freq_wsw_30](https://user-images.githubusercontent.com/76110750/106389952-d26c8800-63c4-11eb-81d7-8b55bcf27cf4.png)
+
 De manera similar, si hemos lematizado o radicalizado las palabras, obtendremos diferentes frecuencias.
 
+## Análisis
+Cuando revisamos el comportamiento de frecuencias, podemos notar la siguiente tendencia: un grupo reducido de palabras aparece muchas veces, y el resto de palabras aparece muy pocas veces. Si graficamos la frecuencia de todas las palabras, vemos cómo van disminuyendo rápidamente las frecuencias:
+| Palabra | Frecuencia |
+| --- | --- |
+'de'| 9050
+'y'| 8413 
+'que'| 6294
+'la'| 5321 
+'el'| 4849 
+'a'| 4358 
+'en'| 4042 
+'no'| 4014 
+'un'| 3124 
+'se'| 2797 
+'los'| 2761
+
+![freq_allwords](https://user-images.githubusercontent.com/76110750/106389937-ca144d00-63c4-11eb-9d4f-2912267fd272.png)
+
+Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren más de 1.000 veces, cuántas ocurren entre 999 y 500, entre 499 y 200, entre 199 y 100, entre 99 y 50, entre 49 y 10, y menos de 10, obtenemos el siguiente resultado.
+
+En esta novela, vemos que 
 ## Resultados
 
