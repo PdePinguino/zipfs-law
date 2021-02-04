@@ -40,28 +40,13 @@ La pregunta que está en cuestión es qué estamos contando (¿contamos palabras
 "corrimos" - "correremos" (distintos tiempos verbales y/o modos)\
 "tierra" - "tierra" (distinto significado pero igual escritura: la "tierra" entendida como "planeta" y entendida como "suelo")\
 
-## Análisis
+## Análisis: Frecuencia de palabras con y sin stop words
+
 Cuando nos fijamos en la frecuencia de las palabras, vemos que muy pocas palabras aparecen gran cantidad de veces, y muchas palabras aparecen muy pocas veces. Es decir, si graficamos cada palabra del texto en el eje x y su frecuencia en el eje y, entonces obtenemos lo siguiente:
 
 ![freq_allwords_30](https://user-images.githubusercontent.com/76110750/106389944-ced90100-63c4-11eb-9ab6-bc9a24a2ef93.png)
 
-La frecuencia detallada de las 10 palabras más frecuentes está mostrada en la siguiente tabla. Podemos ver cómo 'de' es la palabra más utilizada con 9.050 apariciones.\
-
-| Palabra | Frecuencia |
-| --- | --- |
-'de'| 9050
-'y'| 8413 
-'que'| 6294
-'la'| 5321 
-'el'| 4849 
-'a'| 4358 
-'en'| 4042 
-'no'| 4014 
-'un'| 3124 
-'se'| 2797 
-
-Cuando nos percatamos de las palabras, no hay mucho de característico en ellas que remita al texto que estamos analizando. Si comparamos las 10 palabras más frecuentes con la novela "Cien años de soledad" de Gabriel García Márquez, obtenemos el siguiente resultado (en negrita están las palabras repetidas en ambas novelas: 8 palabras son las mismas con más alta frecuencia).
-
+La frecuencia detallada de las 10 palabras más frecuentes está mostrada en la columna izquierda de la siguiente tabla. Podemos ver cómo 'de' es la palabra más utilizada con 9.050 apariciones. Cuando nos percatamos de las palabras, no hay mucho de característico en ellas que remita al texto que estamos analizando. Si comparamos las 10 palabras más frecuentes con la novela "Cien años de soledad" de Gabriel García Márquez (columna derecha), obtenemos el siguiente resultado (en negrita están las palabras repetidas en ambas novelas: 8 palabras son las mismas con más alta frecuencia).
 
 | Palabra | Frecuencia | Palabra | Frecuencia |
 | --- | --- | --- | --- |
@@ -80,7 +65,7 @@ Y si vemos el gráfico para "Cien años de soledad", la curvatura sigue una tend
 
 ![ggm_freqallwords_30](https://user-images.githubusercontent.com/76110750/106954366-6ebec380-6712-11eb-890b-40e055488fa3.png)
 
-Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando. Esta vez, ninguna palabra está repetida en ambos textos.
+Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando. Esta vez, ninguna palabra está repetida en ambos textos. El ávido lector podrá distinguir qué columna corresponde a qué novela.
 
 | Palabra | Frecuencia | Palabra | Frecuencia |
 | --- | --- | --- | --- |
@@ -95,7 +80,15 @@ después | 322 | coronel | 312
 podía | 314 | amaranta | 310
 hombres | 300 | segundo | 309
 
+## Análisis: Frecuencia de la frecuencia de palabras
+
+Hasta aquí hemos visto lo que ocurre con las primeras 30 palabras, pero si graficamos qué ocurre con todas las palabras, obtenemos la siguiente curva de frecuencias. Si removemos stop words, entonces la curva se ve levemente menos pronunciada, pero característicamente bajo el mismo fenómeno: pocas palabras aparecen muchas veces, muchas palabras aparecen pocas veces.
+
 ![freq_allwords](https://user-images.githubusercontent.com/76110750/106389937-ca144d00-63c4-11eb-9d4f-2912267fd272.png)
+
+![freq_allwords_wsw](https://user-images.githubusercontent.com/76110750/106955660-49cb5000-6714-11eb-9fe0-e8e06109ba6f.png)
+
+Puedes revisar si lo mismo ocurre para la novela "Cien años de soledad": `./zipfs_law.py -t cien_años_de_soledad.txt -p`
 
 Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren más de 1.000 veces, cuántas ocurren entre 999 y 500, entre 499 y 200, entre 199 y 100, entre 99 y 50, entre 49 y 10, y menos de 10, obtenemos el siguiente resultado.
 
