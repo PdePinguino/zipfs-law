@@ -21,6 +21,10 @@ Los argumentos disponibles son:\
 `-p, --plot` plotear o no los resultados.\
 `-v, --verbose` imprimir en consola detalles del proceso.
 
+## Libraries
+numpy==1.16.4
+nltk==3.4.4
+matplotlib==3.1.0
 
 ## Pre-procesamiento
 
