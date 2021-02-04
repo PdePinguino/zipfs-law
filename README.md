@@ -8,11 +8,11 @@ Para utilizar este repositorio:
 ```
 git clone https://github.com/PdePinguino/zipfs-law.git
 cd zipfs-law
-./zipf_law.py hijo_de_ladron.txt
+./zipf_law.py -t hijo_de_ladron.txt
 ```
 Si se quiere analizar otro texto, entonces
 ```
-./zipf_law.py [mi_texto.txt]
+./zipf_law.py -t [mi_texto.txt]
 ```
 
 Los argumentos disponibles son:\
@@ -23,6 +23,7 @@ Los argumentos disponibles son:\
 
 
 ## Pre-procesamiento
+
 Antes de calcular la frecuencia de palabras, es necesario leer el archivo en formato txt y eliminar aquello que no se analizará.
 El código de `preprocessing.py` se encarga de:
 - convertir mayúsculas en minúsculas.
@@ -32,10 +33,11 @@ El código de `preprocessing.py` se encarga de:
 - (opcional) radicalizar (stemming) (reducir palabras a su raíz). TODO
 
 ## Frecuencias
+
 Una vez obtenida la lista de palabras a considerar, se genera un diccionario que cuenta las instancias de cada palabra.\
-Para esto, se cuenta cuántas veces la misma palabra está contenida en la lista.\
-En este análisis, las decisiones del pre-procesamiento son importantes ya que nuestros resultados serán distintos según qué estamos contando.\
-La pregunta que está en cuestión es qué estamos contando (¿contamos palabras?) y cómo las contamos. ¿Debemos considerar los siguientes pares de palabras como correspondientes a una misma palabra?\
+Para esto, se cuenta cuántas veces la misma palabra está contenida en la lista.\\
+En este análisis, las decisiones del pre-procesamiento son importantes ya que nuestros resultados serán distintos según qué estamos contando.\\
+La pregunta que está en cuestión es qué estamos contando (¿contamos palabras?) y cómo las contamos. ¿Debemos considerar los siguientes pares de palabras como correspondientes a una misma palabra?\\
 "hijo" - "hijos" (singular - plural)\
 "corrimos" - "correremos" (distintos tiempos verbales y/o modos)\
 "tierra" - "tierra" (distinto significado pero igual escritura: la "tierra" entendida como "planeta" y entendida como "suelo")\
@@ -65,7 +67,7 @@ Y si vemos el gráfico para "Cien años de soledad", la curvatura sigue una tend
 
 ![ggm_freqallwords_30](https://user-images.githubusercontent.com/76110750/106954366-6ebec380-6712-11eb-890b-40e055488fa3.png)
 
-Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando. Esta vez, ninguna palabra está repetida en ambos textos. El ávido lector podrá distinguir qué columna corresponde a qué novela.
+Pero si removemos stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando. Esta vez, ninguna palabra está repetida en ambos textos. El ávido lector podrá distinguir qué columna corresponde a qué novela.
 
 | Palabra | Frecuencia | Palabra | Frecuencia |
 | --- | --- | --- | --- |
@@ -105,8 +107,14 @@ Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren 
 
 ![freq_of_freq](https://user-images.githubusercontent.com/76110750/106397292-65201d80-63eb-11eb-800b-b86f8ab3968f.png)
 
-Considerando que hemos removido stop words, entonces hay 4 palabras que aparecen más de 5 mil veces cada una. Para ser exactos, 
-Según estos resultados, menos de 10 palabras (de 11.907) ocurren casi 10.000 veces en el texto, y si el texto tiene un total de 98.307 tokens, entonces menos del 1% de las palabras abarca el 12% de las palabras de todo el texto.
+## Ley de Zipf
+
+¿Y dónde entra la ley de Zipf? La ley de Zipf describe la frecuencia de aparición de las palabras en una lengua. Las palabras aparecen proporcionalmente según el ranking de frecuencia. Esto quiere decir que, suponiendo que la primera palabra aparece 1.000 veces, la primera aprecerá 1/1 * 1.000, la segunda aparecerá 1/2 * 1.000, la tercera 1/3 * 1.000, la cuarta 1/4 * 1.000, y así sucesivamente.
+
+Si graficamos la distribución actual de palabras junto a la distribución de Zipf, vemos que ambas coinciden, si bien no son exactas.
+
+![text_zipfs_distribution](https://user-images.githubusercontent.com/76110750/106959336-4a1a1a00-6719-11eb-8ab4-85f694fb7b10.png)
 
 ## Créditos
-El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído de 
+El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído desde https://www.escritores.cl/libros_gratis/hijo%20de%20ladron.pdf
+El texto "Cien años de soledad" de Gabriel García Márquez ha sido extraído desde https://www.fundacionarteficial.com/post/2016/02/21/descarga-12-libros-de-gabriel-garc%C3%ADa-m%C3%A1rquez-en-pdf
