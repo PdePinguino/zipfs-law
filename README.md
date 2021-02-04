@@ -60,7 +60,7 @@ La frecuencia detallada de las 10 palabras más frecuentes está mostrada en la 
 'un'| 3124 
 'se'| 2797 
 
-Cuando nos percatamos de las palabras, no hay mucho de característico en ellas que remita al texto que estamos analizando. Si comparamos las 10 palabras más frecuentes con la novela "Cien años de soledad" de García Márquez, obtenemos el siguiente resultado (en negrita están las palabras repetidas en ambas novelas).
+Cuando nos percatamos de las palabras, no hay mucho de característico en ellas que remita al texto que estamos analizando. Si comparamos las 10 palabras más frecuentes con la novela "Cien años de soledad" de Gabriel García Márquez, obtenemos el siguiente resultado (en negrita están las palabras repetidas en ambas novelas: 8 palabras son las mismas con más alta frecuencia).
 
 
 | Palabra | Frecuencia | Palabra | Frecuencia |
@@ -78,16 +78,22 @@ Cuando nos percatamos de las palabras, no hay mucho de característico en ellas 
 
 Y si vemos el gráfico para "Cien años de soledad", la curvatura sigue una tendencia similar.
 
+![ggm_freqallwords_30](https://user-images.githubusercontent.com/76110750/106954366-6ebec380-6712-11eb-890b-40e055488fa3.png)
 
-Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando.
+Pero si removes stop-words, entonces vemos que la frecuencia cae considerablemente (cerca de 9.000 a menos de 1.000) y las palabras pueden generar más sentido según el texto que estamos analizando. Esta vez, ninguna palabra está repetida en ambos textos.
 
-<!-- ![freq_wsw](https://user-images.githubusercontent.com/76110750/106389950-d13b5b00-63c4-11eb-8325-67fd3ccfc0b4.png) -->
-![freq_wsw_30](https://user-images.githubusercontent.com/76110750/106389952-d26c8800-63c4-11eb-81d7-8b55bcf27cf4.png)
-
-De manera similar, si hemos lematizado o radicalizado las palabras, obtendremos diferentes frecuencias.
-
-## Análisis
-
+| Palabra | Frecuencia | Palabra | Frecuencia |
+| --- | --- | --- | --- |
+si | 789 | aureliano | 796
+hombre | 656 | úrsula | 512
+hacia | 526 | arcadio | 480
+allí | 420 | casa | 463
+dos | 412 | josé | 438
+vez | 384 | buendía | 411
+ser | 328 | años | 357
+después | 322 | coronel | 312
+podía | 314 | amaranta | 310
+hombres | 300 | segundo | 309
 
 ![freq_allwords](https://user-images.githubusercontent.com/76110750/106389937-ca144d00-63c4-11eb-9d4f-2912267fd272.png)
 
