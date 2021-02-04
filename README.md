@@ -21,11 +21,6 @@ Los argumentos disponibles son:\
 `-p, --plot` plotear o no los resultados.\
 `-v, --verbose` imprimir en consola detalles del proceso.
 
-## Libraries
-numpy==1.16.4\
-nltk==3.4.4\
-matplotlib==3.1.0\
-
 ## Pre-procesamiento
 
 Antes de calcular la frecuencia de palabras, es necesario leer el archivo en formato txt y eliminar aquello que no se analizará.
@@ -122,3 +117,9 @@ Si graficamos la distribución actual de palabras junto a la distribución de Zi
 ## Créditos
 El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído desde https://www.escritores.cl/libros_gratis/hijo%20de%20ladron.pdf\
 El texto "Cien años de soledad" de Gabriel García Márquez ha sido extraído desde https://www.fundacionarteficial.com/post/2016/02/21/descarga-12-libros-de-gabriel-garc%C3%ADa-m%C3%A1rquez-en-pdf
+
+## Libraries
+numpy==1.16.4\
+nltk==3.4.4\
+matplotlib==3.1.0\
+
