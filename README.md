@@ -116,5 +116,5 @@ Si graficamos la distribución actual de palabras junto a la distribución de Zi
 ![text_zipfs_distribution](https://user-images.githubusercontent.com/76110750/106959336-4a1a1a00-6719-11eb-8ab4-85f694fb7b10.png)
 
 ## Créditos
-El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído desde https://www.escritores.cl/libros_gratis/hijo%20de%20ladron.pdf
+El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído desde https://www.escritores.cl/libros_gratis/hijo%20de%20ladron.pdf\
 El texto "Cien años de soledad" de Gabriel García Márquez ha sido extraído desde https://www.fundacionarteficial.com/post/2016/02/21/descarga-12-libros-de-gabriel-garc%C3%ADa-m%C3%A1rquez-en-pdf
