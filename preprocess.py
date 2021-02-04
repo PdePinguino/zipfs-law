@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 
-# read file txt
-# preliminaries: sentence segmentation and word tokenization
-# stop word removal
-# stemming and lemmatization
-# removing digits/punctuation
-# lowercasing
-
-# Biblioteca Virtual Miguel de Cervantes
-
 from nltk.corpus import stopwords
+
 
 def read_text(file):
     with open(file, 'r') as file:
@@ -30,7 +22,7 @@ def remove_stop_words(tokens):
 
     return tokens_wsw
 
-def preprocess_file(file, verbose=False, remove_sw=False):
+def preprocess_file(file, remove_sw=False, verbose=False):
     text = read_text(file)
     lines = text.split('\n')
     raw_tokens = [token for token in text.split()]
@@ -57,5 +49,7 @@ def preprocess_file(file, verbose=False, remove_sw=False):
 
 
 if __name__ == '__main__':
+    # for testing. this module is being called by zipf_law.py
     file = 'hijo_de_ladron.txt'
     tokens = preprocess_file(file, verbose=True, remove_sw=True)
+    # stemming and lemmatization could be added
