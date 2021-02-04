@@ -10,13 +10,24 @@ git clone https://github.com/PdePinguino/zipfs-law.git
 cd zipfs-law
 ./zipf_law.py hijo_de_ladron.txt
 ```
+Si se quiere analizar otro texto, entonces
+```
+./zipf_law.py [mi_texto.txt]
+```
+
+Los argumentos disponibles son:\
+`-t TEXT, --text TEXT` archivo que será analizado.\
+`-r, --remove_stop_words` remover o no stop words dadas por `nltk.corpus` para español.\
+`-p, --plot` plotear o no los resultados.\
+`-v, --verbose` imprimir en consola detalles del proceso.
+
 
 ## Pre-procesamiento
 Antes de calcular la frecuencia de palabras, es necesario leer el archivo en formato txt y eliminar aquello que no se analizará.
-Este código se encarga de:
+El código de `preprocessing.py` se encarga de:
 - convertir mayúsculas en minúsculas.
 - eliminar puntuación y caracteres que no sean letras.
-- (opcional) remover stop-words ('de', 'a', 'tu'...).
+- (opcional) remover stop words del español ('de', 'a', 'tu'...).
 - (opcional) lematizar (reducir palabras a su forma base). TODO
 - (opcional) radicalizar (stemming) (reducir palabras a su raíz). TODO
 
@@ -71,3 +82,6 @@ Si contamos la frecuencia de la frecuencia, es decir, cuántas palabras ocurren 
 
 ## Resultados
 
+
+## Créditos
+El texto "Hijo de ladrón" de Manuel Rojas ha sido extraído de la Biblioteca Virtual Miguel de Cervantes.
